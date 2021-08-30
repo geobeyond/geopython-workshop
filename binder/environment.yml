@@ -17,5 +17,13 @@ dependencies:
   - ipyleaflet
   - matplotlib
   - pip
+  - scikit-learn
+  - spacy
+  - flask
+  - fastapi
+  - django
+  - pydantic
+  - seaborn
+  - sqlmodel
   - pip:
     - pandas-bokeh
