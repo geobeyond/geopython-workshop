@@ -25,5 +25,6 @@ dependencies:
   - pydantic
   - seaborn
   - sqlmodel
+  - openpyxl 
   - pip:
     - pandas-bokeh
