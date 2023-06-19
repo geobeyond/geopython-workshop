@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="the Doing Geospatial in Python Team">
+        <link rel="canonical" href="https://geopython.github.io/geopython-workshop/docker/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Docker installation - Doing Geospatial in Python</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/color-brewer.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Doing Geospatial in Python</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Docker installation</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/geopython/geopython-workshop/edit/master/web/docs/docker.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#docker" class="nav-link">Docker</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#about-docker" class="nav-link">About Docker</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#installation" class="nav-link">Installation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="docker">Docker</h1>
+<h2 id="about-docker">About Docker</h2>
+<p>Docker has been available for almost 10 years, and provided as a deployment option on numerous FOSS software and OSGeo projects. Given the current
+era of computing, chances are that you have heard of Docker and <em>containerization</em>. Or, perhaps are already familiar and hopefully using Docker already.
+If not, there is a wide array of introductory materials that can be found online like this <a href="https://www.ibm.com/in-en/cloud/learn/Docker">tutorial from IBM</a>.</p>
+<p>FOSS4G software has benefitted greatly from Docker (consistent packaging, isolation, integration and upgrade patterns) in
+comparison to custom installations. Though today we mainly use Docker, the bigger picture is the use of <strong>Containers</strong> as a next step
+in virtualization. Containerization certainly deserves its own workshop, so for the purpose of this workshop we cover the basics
+of Docker and Docker Compose.</p>
+<p><a href="https://docs.docker.com/compose">Docker Compose</a> is an addition to Docker to facilitate
+the orchestration (configuration) of one or more Docker 'Containers' (a Container is a running instance of a Docker image)
+using a configuration convention (the Docker Compose YAML file), usually named <code>docker-compose.yml</code>.</p>
+<p>Stepping up further are even more sophisticated Docker orchestrators like 
+<a href="https://rancher.com/products/rancher">Rancher</a> and <a href="https://kubernetes.io">Kubernetes</a>, but for
+this workshop, Docker and Docker Compose are all we need.</p>
+<h2 id="installation">Installation</h2>
+<p>Docker installation has greatly progressed over the years. This is the only part of the workshop
+which is dependent on the system/OS you are running (e.g. Windows, Mac or Linux). For each
+system the Docker website provides detailed installation instructions. 
+Please follow these consistently.</p>
+<blockquote>
+<p>Docker Compose in older (pre Compose v2) versions was a separate (Python) program to install,
+though it was usually present in Docker Desktop. 
+The <code>docker compose</code> command in that case is <code>docker-compose</code> (hyphened).
+Since 2021, Docker Desktop includes Compose in the Docker CLI.
+The command is then <code>docker compose</code> (space).</p>
+</blockquote>
+<p>In our texts we will use <code>docker-compose</code>. Depending on your installation you may need
+to replace the hyphen (<code>-</code>) with a space. But you can always install the original
+compose (<code>docker-compose</code>) via <code>pip install docker-compose</code>.</p>
+<p>For many platforms a product called <code>Docker Desktop</code> is available, which includes <code>Docker Compose</code>:</p>
+<ul>
+<li>Windows <a href="https://docs.Docker.com/desktop/install/windows-install">installation</a></li>
+<li>Mac <a href="https://docs.Docker.com/desktop/install/mac-install">installation</a></li>
+<li>Linux <a href="https://docs.Docker.com/desktop/install/linux-install">installation</a></li>
+</ul>
+<p>Some notes:</p>
+<ul>
+<li>On Windows we recommend using the <a href="https://docs.microsoft.com/en-us/windows/wsl">Windows Subsystem for Linux</a> (WSL) as it also provides a powerful (Bash) command line and has optimal integration with Docker</li>
+<li>On Mac, if you are using <a href="https://brew.sh">Homebrew</a>, consider (as the author has) using the <a href="https://formulae.brew.sh/formula/Docker">brew Docker formula</a></li>
+<li>On Linux, you can choose the relevant installer for your platform. You can also use Virtualbox with a Ubuntu Image or use a cloud VM</li>
+<li>Docker desktop includes a graphical user interface with some interesting options. You can see logs and information about running containers, open their service in a browser or even open a terminal inside the container</li>
+</ul>
+<p>If all goes well, you should be able to run Docker from the command line as follows: [^2]</p>
+<pre><code class="language-bash">$ docker --version
+Docker version 20.10.17, build 100c701
+$ docker-compose --version  
+Docker Compose version v2.6.1
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright (c) 2019-2021 the Doing Geospatial in Python Team<br/>This website is released under the <a href="https://creativecommons.org/licenses/by/4.0">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a></p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
